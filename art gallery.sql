@@ -1,0 +1,40 @@
+# DROP DATABASE ART_GALLERY;
+
+CREATE DATABASE ART_GALLERY;
+USE ART_GALLERY;
+
+CREATE TABLE Artist (
+	Name VARCHAR(50) NOT NULL,
+	Phone INT NOT NULL,
+	Address VARCHAR(255),
+	Birth_place VARCHAR(50),
+	Age INT,
+	Style_of_art VARCHAR(255),
+	PRIMARY KEY (Name),
+	UNIQUE (Name)
+);
+
+CREATE TABLE Art_work (
+	Artist VARCHAR(50) NOT NULL,
+	Title VARCHAR(100) NOT NULL,
+	Type_of_art VARCHAR(255) NOT NULL,
+	Date_of_creation DATE,
+	Price DECIMAL(5,2) NOT NULL,
+	Location VARCHAR(50) NOT NULL,
+	UNIQUE (Title),
+	FOREIGN KEY (Artist) REFERENCES Artist(Name)
+);
+
+CREATE TABLE Customer (
+	Customer_number INT NOT NULL,
+	Phone INT NOT NULL,
+	Art_preferences VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Art_shows (
+	Date_and_time DATE NOT NULL,
+	Location VARCHAR(50) NOT NULL,
+	Contact_phone INT NOT NULL,
+	Artist VARCHAR(50) NOT NULL,
+	FOREIGN KEY (Artist) REFERENCES Artist(Name)
+);
