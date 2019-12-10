@@ -174,53 +174,58 @@ def sort_by_same_art_preference():
 
     # get data from art shows
     cur.execute("SELECT Location FROM Art_shows")
-    num_of_art_shows = cur.fetchall()
+    all_art_shows = cur.fetchall()
     
     # get data from customers
     cur.execute("SELECT * FROM Customer")
-    num_of_customers = cur.fetchall()
+    all_customers = cur.fetchall()
 
     # for each art show, list customers with the same art preferences
-    for art_show in range(len(num_of_art_shows)):
+    for art_show in range(len(all_art_shows)):
         # print different art shows
-        print("\nCustomers who would be interested in attending " + ''.join(num_of_art_shows[art_show]) + ": ")
+        print("\nCustomers who would be interested in attending " + ''.join(all_art_shows[art_show]) + ": ")
         
         # gather the art style of the art shows
-        cur.execute("SELECT Type_of_art FROM Art_work WHERE Location LIKE '%" + ''.join(num_of_art_shows[art_show]) + "%'")
+        #cur.execute("SELECT Type_of_art FROM Art_work WHERE Location LIKE '%" + ''.join(num_of_art_shows[art_show]) + "%'")
+        cur.execute("SELECT Type_of_art, Location FROM Art_work")
+        
         art_style = cur.fetchall()
-        print("art style:", art_style)
-        print("no. of art shows:", art_show)
         
-        https://animalcrossing.fandom.com/wiki/Forgery
+        # for each location, list customers with the same art preferences
+        for art_work_location in range(len(art_style)):
+            # if the art work location matches an art show
+            if ''.join(all_art_shows[art_show]) == art_style[art_work_location][1]:
+                print("art style[art_work_location][1]:", art_style[art_work_location][0])
         
-        print(''.join(art_style[art_show]))
+        #print(''.join(art_style[art_show]))
         # for every art style, list the customers with similar art preferences
-       # for customers in range(len(num_of_customers)):
-            #print("no.of customers:", customers)
-        cur.execute("SELECT Customer_number, Phone FROM Customer WHERE Art_preferences LIKE '%" + ''.join(art_style[art_show]) + "%'")
-        interested_customers = cur.fetchall()
-        print("interested customers:", interested_customers)
-   # cur.execute("SELECT Art_preferences FROM Customer")
-#    fetch_all()
-    '''
-    cur.execute("SELECT * FROM Artist WHERE Style_of_art LIKE '%" + art_style + "%'")
-    data = cur.fetchall()
+            for customers in range(len(all_customers)):
+                print("all_customers[customers][2]:", all_customers[customers][2])
+                print("art_style[art_work_location][0]:", art_style[art_work_location][0])
+                if all_customers[customers][2] == art_style[art_work_location][0]:
+                    print("Customer number: " + all_customers[customers][0] + ", Phone: " + all_customers[customers][1] + "\n")
+    #cur.execute("SELECT Art_preferences FROM Customer")
+    #fetch_all()
+"""
+    #cur.execute("SELECT * FROM Artist WHERE Style_of_art LIKE '%" + art_style + "%'")
+    #data = cur.fetchall()
     
     
-    cur.execute("SELECT Location FROM Art_shows WHERE Artist LIKE '%" + artist + "%'")
-    fetch_all()'''
+    #cur.execute("SELECT Location FROM Art_shows WHERE Artist LIKE '%" + artist + "%'")
+    #fetch_all()
+    
 # ---------- sort_by_same_art_preference ----------
-    
-'''
-def switch(option):
-    switch = {
-        1: "Print records from the database",
-        2: "Access any record based on attribute values",
-        3: "Sort a report according to art style",
-        4: "Produce a report showing customers with the same art preference of any given art show"
-    }
-    print switch.get(option, "Invalid input")
-'''
+
+
+#def switch(option):
+    #switch = {
+        #1: "Print records from the database",
+        #2: "Access any record based on attribute values",
+        #3: "Sort a report according to art style",
+        #4: "Produce a report showing customers with the same art preference of any given art show"
+    #}
+    #print switch.get(option, "Invalid input")
+"""
 def main():
     #print_records_in_database()
     #access_record_by_attribute_value("Pointillism")
