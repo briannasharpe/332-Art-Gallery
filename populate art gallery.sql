@@ -22,18 +22,20 @@ INSERT INTO Artist VALUES ('Vincent van Gogh', '185-318-9000', 'N/A', 'Zundert, 
 INSERT INTO Art_work VALUES ('Vincent van Gogh', 'Sunflowers', 'Modern art', '1887-00-00', '$3,920', 'Van Gogh Museum');
 
 
-INSERT INTO Customer VALUES (4, '199-205-0604', 'Modern art');
-INSERT INTO Customer VALUES (61, '199-211-2761', 'Ukiyo-e');
-INSERT INTO Customer VALUES (12, '199-301-1212', 'Realism');
-INSERT INTO Customer VALUES (94, '199-404-1294', 'Rococo');
-INSERT INTO Customer VALUES (1, '199-105-2201', 'Rococo');
-INSERT INTO Customer VALUES (7, '199-110-0707', 'Renaissance');
-INSERT INTO Customer VALUES (88, '199-401-1488' , 'Baroque');
-INSERT INTO Customer VALUES (21, '199-209-2121', 'Pointillism');
-INSERT INTO Customer VALUES (99, '199-103-2699', 'Pointillism');
+INSERT INTO Customer VALUES 
+	(4, '199-205-0604', 'Modern art'),
+	(61, '199-211-2761', 'Ukiyo-e'),
+	(12, '199-301-1212', 'Realism'),
+	(94, '199-404-1294', 'Rococo'),
+	(1, '199-105-2201', 'Rococo'),
+	(7, '199-110-0707', 'Renaissance'),
+	(88, '199-401-1488' , 'Baroque'),
+	(21, '199-209-2121', 'Pointillism'),
+	(99, '199-103-2699', 'Pointillism');
 
-INSERT INTO Art_shows VALUES ('2019-12-05, 10:00', 'Van Gogh Museum', '31-20-570-5200', 'Vincent van Gogh');
-INSERT INTO Art_shows VALUES ('2019-12-10, 11:00', 'Rijksmuseum', '31-20-674-7000', 'Rembrandt Harmenszoon van Rijn');
-INSERT INTO Art_shows VALUES ('2019-12-12, 12:00', 'Louvre Museum', '33-1-40-20-50-50', 'Leonardo da Vinci');
-INSERT INTO Art_shows VALUES ('2019-12-13, 9:00', 'Musée d Orsay', '33-1-40-49-48-14', 'Jean-François Millet');
-INSERT INTO Art_shows VALUES ('2019-12-29, 10:00', 'The Metropolitan Museum of Art', '1-212-535-7710', 'Hokusai');
+INSERT INTO Art_shows VALUES 
+	('2019-12-05, 10:00', 'Van Gogh Museum', '31-20-570-5200', 'Vincent van Gogh'),
+	('2019-12-10, 11:00', 'Rijksmuseum', '31-20-674-7000', 'Rembrandt Harmenszoon van Rijn'),
+	('2019-12-12, 12:00', 'Louvre Museum', '33-1-40-20-50-50', 'Leonardo da Vinci'),
+	('2019-12-13, 9:00', 'Musée d Orsay', '33-1-40-49-48-14', 'Jean-François Millet'),
+	('2019-12-29, 10:00', 'The Metropolitan Museum of Art', '1-212-535-7710', 'Hokusai');
