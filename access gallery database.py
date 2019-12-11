@@ -143,7 +143,7 @@ def access_record_by_attribute_value(value):
 
 """ --------------------------------------------------
     [sort_by_art_style]
-        * sort a report according to art style
+        * a report according to art style
         * uses fetch_all
         * triggered by switch 3 
 -------------------------------------------------- """   
@@ -161,52 +161,84 @@ def sort_by_art_style(art_style):
     print("\nCustomers who prefer " + art_style + ": ")
     cur.execute("SELECT Customer_number FROM Customer WHERE Art_preferences LIKE '%" + art_style + "%'")
     fetch_all()
+    
+    # + art shows with
 # ---------- sort_by_art_style ----------
     
 """ --------------------------------------------------
     [sort_by_same_art_preference]
-        * sort a report according to art style
-        * uses fetch_all
-        * triggered by switch 3 
+        * a report showing customers whose art preference is the same as an art show
+        * provides customer name and phone
+        * triggered by switch 4
 -------------------------------------------------- """   
 def sort_by_same_art_preference():
     print("\nArt preference report")
 
     # get data from art shows
-    cur.execute("SELECT Location FROM Art_shows")
+    cur.execute("SELECT * FROM Art_shows")
     all_art_shows = cur.fetchall()
+    
+    # get data from art work
+    cur.execute("SELECT * FROM Art_work")
+    all_art_work = cur.fetchall()
     
     # get data from customers
     cur.execute("SELECT * FROM Customer")
     all_customers = cur.fetchall()
 
-    # for each art show, list customers with the same art preferences
+    # for each art show
     for art_show in range(len(all_art_shows)):
         # print different art shows
-        print("\nCustomers who would be interested in attending " + ''.join(all_art_shows[art_show]) + ": ")
+        print("\nCustomers who would be interested in attending " + ''.join(all_art_shows[art_show][1]) +  " (" + ''.join(all_art_shows[art_show][0]) +"): ")
         
-        # gather the art style of the art shows
-        #cur.execute("SELECT Type_of_art FROM Art_work WHERE Location LIKE '%" + ''.join(num_of_art_shows[art_show]) + "%'")
-        cur.execute("SELECT Type_of_art, Location FROM Art_work")
+        #print("Customers who would be interested in attending " + ''.join(all_art_shows[art_show][1]) + " for " + ''.join(all_art_work[art_show][2])+ " art: ")
         
-        art_style = cur.fetchall()
+        # find artshow location in art work
+        for location in range(len(all_art_work)):
+            print(location)
+            print("art work location: ", ''.join(all_art_work[location][5]))
+            
+            # pick out an art work location that is the same as the art show
+            if ''.join(all_art_shows[art_show][1]) == ''.join(all_art_work[location][5]):
+                print("this one")
+                
+                # find customer
+                for customer in range(len(all_customers)):
+                    print("customer run:", customer)
+                    # pick out art preferences similar to art style
+                    if ''.join(all_customers[customer][2]) == ''.join(all_art_work[location][2]):
+                        print("Customer number: " + str(all_customers[customer][0]) + ", Phone: " + str(all_customers[customer][1]))
         
-        # for each location, list customers with the same art preferences
-        for art_work_location in range(len(art_style)):
-            # if the art work location matches an art show
-            if ''.join(all_art_shows[art_show]) == art_style[art_work_location][1]:
-                print("art style[art_work_location][1]:", art_style[art_work_location][0])
         
-        #print(''.join(art_style[art_show]))
-        # for every art style, list the customers with similar art preferences
-            for customers in range(len(all_customers)):
-                print("all_customers[customers][2]:", all_customers[customers][2])
-                print("art_style[art_work_location][0]:", art_style[art_work_location][0])
-                if all_customers[customers][2] == art_style[art_work_location][0]:
-                    print("Customer number: " + all_customers[customers][0] + ", Phone: " + all_customers[customers][1] + "\n")
+        
+        
+        
+        
+        """
+        print(''.join(all_art_shows[art_show][3]) + ", " + all_art_work[art_show][0])
+        # if art show artist matches art work artist
+        if ''.join(all_art_shows[art_show][3]) == all_art_work[art_show][0]:
+            
+            # for each location
+            for art_work_location in range(len(all_art_work)):
+                print("type of art:" + all_art_work[art_show][2] + " by " + all_art_work[art_show][0])
+                customer_count = 0
+                for customers in range(len(all_customers)):
+                    #print("current customer:", customers)
+                    #print("current customer's art pref:", all_customers[customers][2])
+                    #print("searching for customers with:", all_art_work[art_show][2])
+                    
+                    # if art show is the same as an art work
+                    if ''.join(all_art_shows[art_show]) == all_art_work[art_work_location][1]:
+                        # if customer art preference matches the art style search query
+                        if all_customers[customers][2] == all_art_work[art_work_location][0]:
+                            print("Customer number: " + str(all_customers[customers][0]) + ", Phone: " + str(all_customers[customers][1]) + "\n")
+                            customer_count += 1
+                print("Total: " + str(customer_count) + " customers")
+        """
     #cur.execute("SELECT Art_preferences FROM Customer")
     #fetch_all()
-"""
+'''
     #cur.execute("SELECT * FROM Artist WHERE Style_of_art LIKE '%" + art_style + "%'")
     #data = cur.fetchall()
     
@@ -225,7 +257,7 @@ def sort_by_same_art_preference():
         #4: "Produce a report showing customers with the same art preference of any given art show"
     #}
     #print switch.get(option, "Invalid input")
-"""
+'''
 def main():
     #print_records_in_database()
     #access_record_by_attribute_value("Pointillism")

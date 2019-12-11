@@ -1,0 +1,38 @@
+CREATE TABLE Artist
+(
+  Name VARCHAR(50) NOT NULL,
+  Phone INT NOT NULL,
+  Address VARCHAR(255) NOT NULL,
+  Birth_place VARCHAR(50) NOT NULL,
+  Age INT NOT NULL,
+  Style_of_art VARCHAR(255) NOT NULL,
+  PRIMARY KEY (Name)
+);
+
+CREATE TABLE Art_work
+(
+  Title VARCHAR(100) NOT NULL,
+  Type_of_art VARCHAR(255) NOT NULL,
+  Date_of_creation DATE NOT NULL,
+  Price INT NOT NULL,
+  Location VARCHAR(50) NOT NULL,
+  Artist VARCHAR(50) NOT NULL,
+  PRIMARY KEY (Title),
+  FOREIGN KEY (Artist) REFERENCES Artist(Name)
+);
+
+CREATE TABLE Customer
+(
+  Customer_number INT NOT NULL,
+  Phone INT NOT NULL,
+  Art_preferences VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Art_shows
+(
+  Date_and_time DATE NOT NULL,
+  Location VARCHAR(50) NOT NULL,
+  Contact_phone INT NOT NULL,
+  Artist VARCHAR(50) NOT NULL,
+  FOREIGN KEY (Artist) REFERENCES Artist(Name)
+);

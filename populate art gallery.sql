@@ -38,4 +38,6 @@ INSERT INTO Art_shows VALUES
 	('2019-12-10, 11:00', 'Rijksmuseum', '31-20-674-7000', 'Rembrandt Harmenszoon van Rijn'),
 	('2019-12-12, 12:00', 'Louvre Museum', '33-1-40-20-50-50', 'Leonardo da Vinci'),
 	('2019-12-13, 9:00', 'Musée d Orsay', '33-1-40-49-48-14', 'Jean-François Millet'),
-	('2019-12-29, 10:00', 'The Metropolitan Museum of Art', '1-212-535-7710', 'Hokusai');
+	('2019-12-29, 10:00', 'The Metropolitan Museum of Art', '1-212-535-7710', 'Hokusai'),
+	('2020-01-05, 10:00', 'Louvre Museum', '33-1-40-20-50-50', 'Leonardo da Vinci'),
+	('2020-01-07, 9:00', 'Art Institute of Chicago', '1-312-443-3600', 'Georges Seurat');
