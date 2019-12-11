@@ -1,0 +1,7 @@
+Database program: DB Browser for SQLite
+Languages: Python, SQL
+
+1. Open 'art_gallery.db' in DB Browser for SQLite
+2. Run 'art gallery (db).sql' and 'populate art gallery (db).sql'
+3. Open a Python IDE and run 'access gallery database.py'
+4. Follow prompts in console accordingly
