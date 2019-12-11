@@ -21,7 +21,6 @@ INSERT INTO Art_work VALUES ('Leonardo da Vinci', 'Mona Lisa', 'Renaissance', '1
 INSERT INTO Artist VALUES ('Vincent van Gogh', '185-318-9000', 'N/A', 'Zundert, Netherlands', 166, 'Modern art');
 INSERT INTO Art_work VALUES ('Vincent van Gogh', 'Sunflowers', 'Modern art', '1887-00-00', '$3,920', 'Van Gogh Museum');
 
-
 INSERT INTO Customer VALUES 
 	(4, '199-205-0604', 'Modern art'),
 	(61, '199-211-2761', 'Ukiyo-e'),
@@ -31,7 +30,10 @@ INSERT INTO Customer VALUES
 	(7, '199-110-0707', 'Renaissance'),
 	(88, '199-401-1488' , 'Baroque'),
 	(21, '199-209-2121', 'Pointillism'),
-	(99, '199-103-2699', 'Pointillism');
+	(99, '199-103-2699', 'Pointillism'),
+	(00, '199-105-2200', 'Modern art'),
+	(10, '199-110-0710', 'Renaissance'),
+	(68, '199-305-0268', 'Realism');
 
 INSERT INTO Art_shows VALUES 
 	('2019-12-05, 10:00', 'Van Gogh Museum', '31-20-570-5200', 'Vincent van Gogh'),
